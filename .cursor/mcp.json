@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "planer": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:/Projects/mcp/planer-mcp",
+        "run",
+        "python",
+        "-m",
+        "src.planer_mcp.server"
+      ]
+    }
+  }
+}
