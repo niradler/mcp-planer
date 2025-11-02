@@ -1,6 +1,6 @@
 # Makefile for Planer MCP Server
 
-.PHONY: help install install-dev test lint format type-check clean run setup
+.PHONY: help install install-dev test lint format type-check clean run setup build publish
 
 # Default target
 help:
@@ -14,6 +14,8 @@ help:
 	@echo "  clean        - Clean up temporary files"
 	@echo "  run          - Run the MCP server"
 	@echo "  setup        - Complete setup including tests"
+	@echo "  build        - Build package for distribution"
+	@echo "  publish      - Build and publish to PyPI"
 
 # Install package
 install:
@@ -62,3 +64,11 @@ setup: install-dev test
 # Development workflow
 dev-check: format type-check test
 	@echo "✅ All development checks passed!"
+
+# Build package
+build: clean
+	uv build
+
+# Publish to PyPI
+publish: build
+	uv publish

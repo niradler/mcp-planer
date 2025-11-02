@@ -123,6 +123,29 @@ Permanently delete a plan and all its tasks from the database.
 
 ## Installation
 
+### For Users (with uvx)
+
+The easiest way to use Planer MCP is with `uvx`:
+
+```bash
+uvx planer-mcp
+```
+
+Or add it to your MCP configuration (e.g., in Cursor):
+
+```json
+{
+  "mcpServers": {
+    "planer": {
+      "command": "uvx",
+      "args": ["planer-mcp"]
+    }
+  }
+}
+```
+
+### For Development
+
 ```bash
 cd planer-mcp
 
@@ -133,14 +156,19 @@ uv pip install -e ".[dev]"
 
 ## Usage
 
-### Run with Python Module
+### Run with uvx (Recommended for Users)
 
 ```bash
-# Recommended for MCP clients
+uvx planer-mcp
+```
+
+### Run with Python Module (Development)
+
+```bash
 uv run python -m src.planer_mcp.server
 ```
 
-### Run with main.py
+### Run with main.py (Development)
 
 ```bash
 python main.py
@@ -150,8 +178,19 @@ uv run python main.py
 
 ### Configure in Cursor
 
-Add to `.cursor/mcp.json`:
+For users:
+```json
+{
+  "mcpServers": {
+    "planer": {
+      "command": "uvx",
+      "args": ["planer-mcp"]
+    }
+  }
+}
+```
 
+For development:
 ```json
 {
   "mcpServers": {
@@ -174,11 +213,34 @@ Change the `--directory` path to match your project location.
 
 ## Development
 
+### Running Tests
+
 ```bash
 make test         # Run tests
 make format       # Format code
 make lint         # Lint code
 make type-check   # Type checking
+make dev-check    # Run all checks (format, type-check, test)
+```
+
+### Publishing to PyPI
+
+1. Update version in `pyproject.toml`
+2. Update `authors` and `urls` in `pyproject.toml`
+3. Commit all changes and create a git tag
+4. Build and publish:
+
+```bash
+make build          # Build package
+make publish-test   # Publish to TestPyPI (for testing)
+make publish        # Publish to PyPI
+```
+
+Or manually with uv:
+
+```bash
+uv build
+uv publish
 ```
 
 ## Architecture

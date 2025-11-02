@@ -3,17 +3,35 @@ name = "planer-mcp"
 version = "0.1.0"
 description = "MCP server for intelligent planning and task management"
 authors = [
-    { name = "Your Name", email = "your.email@example.com" }
+    { name = "Nir Adler", email = "me@niradler.com" }
 ]
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
+keywords = ["mcp", "planning", "task-management", "model-context-protocol"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "fastmcp>=0.1.0",
     "pydantic>=2.0.0",
     "sqlalchemy>=2.0.0",
     "python-dateutil>=2.8.0",
 ]
+
+[project.scripts]
+planer-mcp = "planer_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/niradler/mcp-planer"
+Repository = "https://github.com/niradler/mcp-planer"
+Issues = "https://github.com/niradler/mcp-planer/issues"
 
 [project.optional-dependencies]
 dev = [

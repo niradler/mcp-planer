@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "planer": {
+    "planer-dev": {
       "command": "uv",
       "args": [
         "--directory",
@@ -9,6 +9,12 @@
         "python",
         "-m",
         "src.planer_mcp.server"
+      ]
+    },
+    "planer": {
+      "command": "uvx",
+      "args": [
+        "planer-mcp"
       ]
     }
   }

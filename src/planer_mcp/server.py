@@ -432,5 +432,10 @@ def delete_plan(plan_id: int) -> str:
         return f"Failed to delete plan {plan_id}."
 
 
-if __name__ == "__main__":
+def main() -> None:
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
+
